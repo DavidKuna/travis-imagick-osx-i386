@@ -1,17 +1,19 @@
 os: 
   - osx
 
-language: sh
+language: php
 php: 5.6
 
 script: uname -a
 
 before_install:
-        - brew update && brew tap homebrew/php && brew install php56 imagemagick
+        - brew update && brew tap homebrew/php && brew install imagemagick
 
 install:
   - cd imagick-3.4.3
   - phpize
+  - export CFLAGS="-arch i386"
+  - export LDFLAGS="-arch i386"
   - ./configure
   - make
   - make install

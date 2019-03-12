@@ -1,13 +1,14 @@
 os: 
   - osx
 
-language: php
+language: sh
 php: 5.6
 
 script: uname -a
 
 before_install:
-        - brew update && brew tap homebrew/php && brew install imagemagick
+        - brew update && brew install imagemagick
+        - curl -s https://php-osx.liip.ch/install.sh | bash -s 5.6
 
 install:
   - cd imagick-3.4.3

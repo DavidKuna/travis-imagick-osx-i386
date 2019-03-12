@@ -1,0 +1,1 @@
+# travis-imagick-osx-i386

@@ -20,4 +20,5 @@ install:
   - cd ..
   - mkdir git-stage
   - cp imagick-3.4.3/modules/imagick.so git-stage/
+  - ls git-stage
   - ./push.sh

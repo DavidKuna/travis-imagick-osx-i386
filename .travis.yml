@@ -13,8 +13,10 @@ before_install:
 install:
   - cd imagick-3.4.3
   - phpize
-  - export CFLAGS="-arch i386"
-  - export LDFLAGS="-arch i386"
+  - export CFLAGS="-arch i386 -g -Os -pipe -no-cpp-precomp"
+  - export CCFLAGS="-arch i386 -g -Os -pipe"
+  - export CXXFLAGS="-arch i386 -g -Os -pipe"
+  - export LDFLAGS="-arch i386 -bind_at_load"
   - ./configure
   - make
   - cd ..

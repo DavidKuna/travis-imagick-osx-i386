@@ -7,7 +7,7 @@ php: 5.6
 script: uname -a
 
 before_install:
-        - brew update && brew install imagemagick
+        - brew install imagemagick
         - curl -s https://php-osx.liip.ch/install.sh | bash -s 5.6
 
 install:
@@ -17,11 +17,7 @@ install:
   - export LDFLAGS="-arch i386"
   - ./configure
   - make
-
-after_success:
-  - mkdir build
-  - cp imagick-3.4.3/modules/imagick.so build/
+  - cd ..
+  - mkdir git-stage
+  - cp imagick-3.4.3/modules/imagick.so git-stage/
   - ./push.sh
-env:
-  global:
-    secure: 25b638e7c94c5f815ce2b441a74810ac047391f6

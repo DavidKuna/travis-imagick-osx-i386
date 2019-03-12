@@ -17,9 +17,11 @@ install:
   - export LDFLAGS="-arch i386"
   - ./configure
   - make
-  - make install
-script:
-  - export NO_INTERACTION=1
-  - export REPORT_EXIT_STATUS=1
-  - export TEST_PHP_ARGS="--show-diff"
-  - make test        
+
+after_success:
+  - mkdir build
+  - cp imagick-3.4.3/modules/imagick.so build/
+  - ./push.sh
+env:
+  global:
+    secure: 25b638e7c94c5f815ce2b441a74810ac047391f6
